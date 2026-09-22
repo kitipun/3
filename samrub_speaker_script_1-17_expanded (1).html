@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Samrub × London — Presentation Script</title>
+<style>
+  :root{
+    --bg:#f4f2ee;
+    --paper:#ffffff;
+    --ink:#111111;
+    --muted:#6d6a64;
+    --line:#dedad2;
+    --accent:#9e2f2f;
+    --soft:#efe8e2;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"Tahoma","Arial","Noto Sans Thai",sans-serif;
+    background:linear-gradient(180deg,#f8f7f4 0%,#f1eee8 100%);
+    color:var(--ink);
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 18px 60px}
+  .hero{
+    background:#111;color:#fff;border-radius:28px;
+    padding:36px 34px 32px;position:relative;overflow:hidden;
+    box-shadow:0 18px 50px rgba(0,0,0,.12);
+  }
+  .hero:after{
+    content:"";position:absolute;width:300px;height:300px;border-radius:50%;
+    right:-80px;top:-90px;border:34px solid rgba(255,255,255,.06);
+  }
+  .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#d9d9d9;margin-bottom:10px}
+  h1{margin:0;font-size:clamp(32px,5vw,58px);line-height:1.05}
+  .hero p{max-width:800px;color:#d8d8d8;font-size:16px;line-height:1.75;margin:16px 0 0}
+  .hero .tag{display:inline-block;margin-top:18px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.1);font-size:13px}
+
+  .picker-title{margin:28px 0 12px;font-weight:700;font-size:18px}
+  .people{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+  .person{
+    border:1px solid var(--line);background:rgba(255,255,255,.7);border-radius:18px;
+    padding:16px;cursor:pointer;transition:.18s ease;min-height:112px
+  }
+  .person:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+  .person.active{background:#111;color:#fff;border-color:#111}
+  .person .num{font-size:30px;font-weight:800;line-height:1}
+  .person .range{font-size:13px;margin-top:8px;opacity:.7}
+  .person .role{font-size:14px;margin-top:6px;font-weight:700}
+
+  .toolbar{display:flex;gap:10px;align-items:center;justify-content:space-between;margin:18px 0 12px}
+  .status{color:var(--muted);font-size:14px}
+  .showall{border:none;background:var(--accent);color:#fff;padding:10px 15px;border-radius:12px;cursor:pointer;font-weight:700}
+
+  .slides{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:22px;
+    box-shadow:0 9px 28px rgba(0,0,0,.04);position:relative
+  }
+  .card.hidden{display:none}
+  .cardhead{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+  .page{
+    flex:0 0 auto;width:48px;height:48px;border-radius:15px;display:grid;place-items:center;
+    background:#111;color:#fff;font-weight:800
+  }
+  .meta{min-width:0}
+  .meta small{display:block;color:var(--accent);font-weight:800;letter-spacing:.04em}
+  .meta h2{font-size:20px;line-height:1.3;margin:3px 0 0}
+  .speech{
+    background:var(--soft);border-left:4px solid var(--accent);border-radius:14px;
+    padding:16px 17px;font-size:16px;line-height:1.78
+  }
+  .speech p{margin:0 0 10px}
+  .speech p:last-child{margin-bottom:0}
+  .cue{margin-top:13px;color:var(--muted);font-size:13px;line-height:1.55}
+  .cue b{color:#333}
+  .footer{margin-top:28px;padding:18px 20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;text-align:center}
+  @media(max-width:850px){.people{grid-template-columns:1fr 1fr}.slides{grid-template-columns:1fr}}
+  @media(max-width:520px){.hero{padding:26px 22px;border-radius:22px}.people{grid-template-columns:1fr}.person{min-height:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow">Presentation Script • Samrub Samrub Thai × London</div>
+    <h1>เลือกคนพูด แล้วดูบทพูด<br>ทีละสไลด์</h1>
+    <p>บทพูดเวอร์ชันขยาย สำหรับสไลด์ 1–17 ใช้ประโยคภาษาไทยที่พูดง่าย แต่มีรายละเอียดพอให้แต่ละคนต่อยอดเป็นภาษาพูดของตัวเองได้ เหมาะสำหรับอัปขึ้น GitHub เป็นหน้าเว็บของกลุ่ม</p>
+    <span class="tag">4 Speakers • 17 Slides • Expanded Thai Script</span>
+  </section>
+
+  <div class="picker-title">เลือกคนพูด</div>
+  <div class="people">
+    <div class="person" data-speaker="1" onclick="filterSpeaker(1)">
+      <div class="num">01</div><div class="role">ภาพรวม + Brand</div><div class="range">สไลด์ 1–4</div>
+    </div>
+    <div class="person" data-speaker="2" onclick="filterSpeaker(2)">
+      <div class="num">02</div><div class="role">Brand DNA + London + Supply Chain</div><div class="range">สไลด์ 5–8</div>
+    </div>
+    <div class="person" data-speaker="3" onclick="filterSpeaker(3)">
+      <div class="num">03</div><div class="role">FX + Bid/Offer + Forward</div><div class="range">สไลด์ 9–13</div>
+    </div>
+    <div class="person" data-speaker="4" onclick="filterSpeaker(4)">
+      <div class="num">04</div><div class="role">Hedging + Risk + Recommendation</div><div class="range">สไลด์ 14–17</div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="status" id="status">แสดงทั้งหมด 17 สไลด์</div>
+    <button class="showall" onclick="showAll()">ดูทั้งหมด</button>
+  </div>
+
+  <div class="slides">
+
+    <article class="card" data-speaker="1">
+      <div class="cardhead"><div class="page">01</div><div class="meta"><small>คนที่ 1</small><h2>Thai Cuisine · Global Proof</h2></div></div>
+      <div class="speech">
+        <p>ก่อนจะพูดถึง Samrub เราต้องเห็นภาพก่อนว่าอาหารไทยไม่ได้เริ่มจากศูนย์ในตลาดโลก เพราะที่ผ่านมาอาหารไทยได้รับการยอมรับจากทั้ง Michelin และเวทีร้านอาหารระดับนานาชาติแล้ว</p>
+        <p>ตัวอย่างเหล่านี้ช่วยยืนยันว่า ผู้บริโภคต่างประเทศมีความสนใจในอาหารไทยระดับพรีเมียมอยู่จริง ดังนั้นโจทย์ของเราไม่ใช่ว่าอาหารไทยขายได้ไหม แต่คือ Samrub จะเข้าไปในตลาดต่างประเทศอย่างไรให้คุ้มค่าและรักษาตัวตนของร้านไว้ได้</p>
+      </div>
+      <div class="cue"><b>เน้น:</b> ตลาดรู้จักอาหารไทยอยู่แล้ว และมี Demand ก่อนที่ Samrub จะขยาย</div>
+    </article>
+
+    <article class="card" data-speaker="1">
+      <div class="cardhead"><div class="page">02</div><div class="meta"><small>คนที่ 1</small><h2>Recognition ≠ Investability</h2></div></div>
+      <div class="speech">
+        <p>อย่างไรก็ตาม การที่ร้านมีชื่อเสียงหรือได้รับรางวัล ไม่ได้แปลว่าการเปิดสาขาใหม่ในต่างประเทศจะคุ้มค่าทันที เพราะเมื่อขยายออกไป เราต้องรับความเสี่ยงเพิ่มหลายด้านพร้อมกัน</p>
+        <p>ทั้งเรื่องตลาด ค่าเช่า ค่าแรง วัตถุดิบ ค่าเงิน และชื่อเสียงของแบรนด์ ดังนั้นกลุ่มเราจึงมองการขยายครั้งนี้ในมุมของการลงทุน ไม่ได้ดูแค่ความดังหรือโอกาสทางการตลาดอย่างเดียว</p>
+      </div>
+      <div class="cue"><b>เน้น:</b> Recognition สร้าง Demand แต่ไม่ได้การันตีผลตอบแทนจากการลงทุน</div>
+    </article>
+
+    <article class="card" data-speaker="1">
+      <div class="cardhead"><div class="page">03</div><div class="meta"><small>คนที่ 1</small><h2>Why Samrub?</h2></div></div>
+      <div class="speech">
+        <p>Samrub เป็นเคสที่น่าสนใจ เพราะร้านมีจุดแข็งจากความเป็นไทยที่ชัดเจนมาก ทั้งรสชาติ วิธีเล่าเรื่อง และรูปแบบ Tasting Menu</p>
+        <p>แต่ในอีกมุมหนึ่ง จุดแข็งนี้ก็ทำให้การขยายยากขึ้น เพราะถ้าเปลี่ยนมากเกินไป ลูกค้าอาจรู้สึกว่าไม่ใช่ Samrub เดิม แต่ถ้าไม่ปรับอะไรเลย ก็อาจมีต้นทุนสูงหรือทำงานจริงในต่างประเทศได้ยาก</p>
+      </div>
+      <div class="cue"><b>เน้น:</b> สิ่งที่ทำให้แบรนด์พิเศษ ก็เป็นสิ่งที่ทำให้ Scale ยาก</div>
+    </article>
+
+    <article class="card" data-speaker="1">
+      <div class="cardhead"><div class="page">04</div><div class="meta"><small>คนที่ 1</small><h2>Samrub × London</h2></div></div>
+      <div class="speech">
+        <p>จากโจทย์นี้ กลุ่มเราจึงเลือกศึกษาการขยาย Samrub ไป London โดยมองทั้งมุมตลาด การลงทุน Supply Chain ค่าเงิน และความสามารถในการรักษาแบรนด์</p>
+        <p>เป้าหมายคือหาคำตอบว่า London มีศักยภาพมากพอหรือไม่ และถ้าจะเข้าไปจริง ควรเข้าไปด้วยรูปแบบไหนที่จะลดความเสี่ยงและยังรักษาคุณภาพของร้านได้</p>
+      </div>
+      <div class="cue"><b>ส่งต่อ:</b> ต่อไปจะดูว่าตัวตนของ Samrub คืออะไร และทำไม London ถึงเหมาะ</div>
+    </article>
+
+    <article class="card" data-speaker="2">
+      <div class="cardhead"><div class="page">05</div><div class="meta"><small>คนที่ 2</small><h2>Brand DNA</h2></div></div>
+      <div class="speech">
+        <p>หัวใจของ Samrub คือการนำตำรับอาหารไทยโบราณมาเล่าใหม่ผ่าน Tasting Menu โดยไม่ได้ขายแค่อาหาร แต่ขายทั้งเรื่องราวและประสบการณ์</p>
+        <p>ดังนั้นถ้าขยายไป London สิ่งที่ต้องรักษาไว้ให้ได้คือวิธีคิด โครงสร้างของรสชาติ และมาตรฐานของเชฟ แม้ว่าวัตถุดิบบางชนิดอาจต้องปรับตามข้อจำกัดของตลาดอังกฤษก็ตาม</p>
+      </div>
+      <div class="cue"><b>เน้น:</b> ปรับวัตถุดิบได้บางส่วน แต่ Brand DNA ต้องไม่หาย</div>
+    </article>
+
+    <article class="card" data-speaker="2">
+      <div class="cardhead"><div class="page">06</div><div class="meta"><small>คนที่ 2</small><h2>Why London?</h2></div></div>
+      <div class="speech">
+        <p>เหตุผลที่ London น่าสนใจ คือเป็นเมืองที่มีตลาด Fine Dining ขนาดใหญ่ มีนักท่องเที่ยวจำนวนมาก และมีฐานลูกค้าที่คุ้นเคยกับอาหารไทยอยู่แล้ว</p>
+        <p>อีกปัจจัยหนึ่งคือเชฟปริญญ์มีประสบการณ์ทำงานที่ Nahm London มาก่อน ทำให้ตลาดนี้มีความเชื่อมโยงกับตัวเชฟ และมีโอกาสต่อยอดเรื่องราวของแบรนด์ได้ง่ายกว่าการเริ่มในเมืองที่ไม่มีความเชื่อมโยงเลย</p>
+      </div>
+      <div class="cue"><b>เน้น:</b> Market fit + Fine Dining demand + Chef connection</div>
+    </article>
+
+    <article class="card" data-speaker="2">
+      <div class="cardhead"><div class="page">07</div><div class="meta"><small>คนที่ 2</small><h2>Supply Chain</h2></div></div>
+      <div class="speech">
+        <p>ในด้าน Supply Chain กลุ่มเราไม่ได้เสนอให้นำเข้าทุกอย่างจากไทย เพราะจะทำให้ต้นทุนสูงและเสี่ยงต่อความล่าช้า</p>
+        <p>แนวทางของเราคือซื้อวัตถุดิบประมาณ 75% จากอังกฤษ และนำเข้าจากไทยประมาณ 25% เฉพาะของที่สำคัญต่อรสชาติและเอกลักษณ์ เช่น เครื่องแกง น้ำปลา น้ำตาลมะพร้าว และสมุนไพรบางชนิด</p>
+        <p>แนวทางนี้ช่วยให้ร้านยังรักษารสชาติแบบ Samrub ได้ แต่ไม่แบกต้นทุนและความเสี่ยงจากการนำเข้ามากเกินไป</p>
+      </div>
+      <div class="cue"><b>เน้น:</b> Import only what creates identity</div>
+    </article>
+
+    <article class="card" data-speaker="2">
+      <div class="cardhead"><div class="page">08</div><div class="meta"><small>คนที่ 2</small><h2>International Financial Management</h2></div></div>
+      <div class="speech">
+        <p>หลังจากดูเรื่องตลาดและการดำเนินงานแล้ว ส่วนต่อไปคือการเงินระหว่างประเทศ เพราะร้านใน London จะมีรายได้เป็นเงินปอนด์ แต่บริษัทแม่ในไทยยังมองผลตอบแทนกลับมาเป็นเงินบาท</p>
+        <p>ตรงนี้ทำให้ค่าเงินเข้ามามีผลต่อทั้งการลงทุน การนำเงินกลับไทย และมูลค่าของกำไรเมื่อแปลงกลับเป็นเงินบาท</p>
+      </div>
+      <div class="cue"><b>ส่งต่อ:</b> ต่อไปจะดูว่าเงินไหลข้ามประเทศตรงไหนบ้าง และ FX Risk อยู่ตรงไหนจริง</div>
+    </article>
+
+    <article class="card" data-speaker="3">
+      <div class="cardhead"><div class="page">09</div><div class="meta"><small>คนที่ 3</small><h2>Currency Map</h2></div></div>
+      <div class="speech">
+        <p>ในตัวร้าน London รายได้และต้นทุนส่วนใหญ่เป็นเงินปอนด์เหมือนกัน ทำให้เกิด Natural Hedge เพราะรับเป็นปอนด์และจ่ายเป็นปอนด์</p>
+        <p>ดังนั้นความเสี่ยงค่าเงินไม่ได้อยู่ในทุกกิจกรรมของร้าน แต่จะชัดขึ้นเมื่อมีเงินข้ามประเทศ เช่น เงินลงทุนจากไทย วัตถุดิบนำเข้า และเงินค่าธรรมเนียมหรือกำไรที่ส่งกลับประเทศไทย</p>
+      </div>
+      <div class="cue"><b>เน้น:</b> FX Risk อยู่ที่ Cross-border flow มากกว่าการดำเนินงานในร้าน</div>
+    </article>
+
+    <article class="card" data-speaker="3">
+      <div class="cardhead"><div class="page">10</div><div class="meta"><small>คนที่ 3</small><h2>Four Cross-Border Money Flows</h2></div></div>
+      <div class="speech">
+        <p>เราสรุปเงินข้ามพรมแดนออกมาเป็น 4 สายหลัก คือเงินลงทุน วัตถุดิบจากไทย ค่าขนส่ง และเงินค่าธรรมเนียมหรือกำไรที่ส่งกลับไทย</p>
+        <p>สิ่งสำคัญคือแต่ละสายไม่ได้มีความเสี่ยงเท่ากัน โดยเงินลงทุนออกจากไทยและเงินที่ส่งกลับไทยมีขนาดใหญ่กว่า และสามารถวางแผนช่วงเวลาได้ จึงเป็นจุดที่เหมาะกับการทำ Hedge มากที่สุด</p>
+        <p>ส่วนค่าใช้จ่ายภายใน London ที่รับและจ่ายเป็นปอนด์เหมือนกัน ไม่จำเป็นต้อง Hedge ทุกบาททุกปอนด์</p>
+      </div>
+      <div class="cue"><b>เน้น:</b> ไม่ต้อง Hedge ทุกอย่าง ให้ Hedge เฉพาะ Flow ที่ใหญ่และกำหนดเวลาได้</div>
+    </article>
+
+    <article class="card" data-speaker="3">
+      <div class="cardhead"><div class="page">11</div><div class="meta"><small>คนที่ 3</small><h2>Market Data and Bid–Offer</h2></div></div>
+      <div class="speech">
+        <p>เวลาบริษัทแลกเงินจริง จะไม่ได้ใช้อัตรากลางเพียงอัตราเดียว เพราะธนาคารมีทั้ง Bid และ Offer</p>
+        <p>ตอนเราซื้อเงินปอนด์เพื่อไปลงทุน จะใช้ราคา Offer ซึ่งสูงกว่า แต่ตอนนำเงินปอนด์กลับมาแลกเป็นบาท จะใช้ราคา Bid ซึ่งต่ำกว่า</p>
+        <p>ดังนั้นส่วนต่างระหว่างสองราคานี้คือต้นทุนการแลกเงินที่เกิดขึ้นจริง และต้องนำมาคิดในโมเดล ไม่ใช่ดูแค่ Spot Rate กลาง</p>
+      </div>
+      <div class="cue"><b>พูดง่าย ๆ:</b> เราซื้อเงินแพงกว่า และขายคืนถูกกว่า</div>
+    </article>
+
+    <article class="card" data-speaker="3">
+      <div class="cardhead"><div class="page">12</div><div class="meta"><small>คนที่ 3</small><h2>Cross Rate and Arbitrage</h2></div></div>
+      <div class="speech">
+        <p>กลุ่มเรายังตรวจ Cross Rate ระหว่างเงินบาท ดอลลาร์ และปอนด์ เพื่อดูว่ามีช่องว่างของราคาที่สามารถทำ Arbitrage ได้หรือไม่</p>
+        <p>ผลคือส่วนต่างมีเพียงเล็กน้อย และเมื่อรวม Spread ของธนาคารแล้ว ต้นทุนสูงกว่าส่วนต่างที่เห็น จึงไม่มีโอกาสทำกำไรแบบ Triangular Arbitrage จริง</p>
+        <p>สรุปง่าย ๆ คือ ราคาตลาดมีความสอดคล้องกันมากพอ และไม่มีเงินฟรีจากการวนแลกสกุลเงิน</p>
+      </div>
+      <div class="cue"><b>เน้น:</b> Pricing gap เล็กกว่า Bank spread</div>
+    </article>
+
+    <article class="card" data-speaker="3">
+      <div class="cardhead"><div class="page">13</div><div class="meta"><small>คนที่ 3</small><h2>Forward Rate and IRP</h2></div></div>
+      <div class="speech">
+        <p>ต่อมาคือ Forward Rate ซึ่งเป็นอัตราแลกเปลี่ยนที่ใช้สำหรับล็อกเรทในอนาคต</p>
+        <p>จาก Interest Rate Parity ค่า Forward ของเงินปอนด์ต่ำกว่า Spot เพราะอัตราดอกเบี้ยของอังกฤษสูงกว่าไทย ทำให้เงินปอนด์อยู่ในภาวะ Forward Discount เมื่อเทียบกับเงินบาท</p>
+        <p>ประโยชน์ของ Forward สำหรับ Samrub ไม่ใช่การเก็งกำไร แต่คือการทำให้บริษัทคาดการณ์ต้นทุนหรือเงินที่จะได้รับในอนาคตได้ชัดขึ้น</p>
+      </div>
+      <div class="cue"><b>ส่งต่อ:</b> ต่อไปจะดูว่าการ Hedge ช่วยลดความผันผวนของกระแสเงินสดได้อย่างไร</div>
+    </article>
+
+    <article class="card" data-speaker="4">
+      <div class="cardhead"><div class="page">14</div><div class="meta"><small>คนที่ 4</small><h2>Hedged vs Unhedged</h2></div></div>
+      <div class="speech">
+        <p>ถ้า Samrub ไม่ Hedge เลย เงินที่ได้รับกลับมาเป็นเงินบาทจะเปลี่ยนตามค่าเงินเต็ม ๆ ทำให้ผลลัพธ์มีความผันผวนสูง</p>
+        <p>แต่ถ้า Hedge ประมาณ 50% ช่วงความผันผวนของกระแสเงินสดจะลดลงประมาณครึ่งหนึ่ง ซึ่งช่วยให้บริษัทวางแผนได้ง่ายขึ้น</p>
+        <p>อย่างไรก็ตาม Hedge ก็มีต้นทุน และถ้าปอนด์แข็งขึ้น บริษัทจะได้ประโยชน์จากค่าเงินน้อยลง เพราะฉะนั้นเป้าหมายคือความแน่นอน ไม่ใช่กำไรสูงสุด</p>
+      </div>
+      <div class="cue"><b>เน้น:</b> Hedging = ลดความไม่แน่นอน ไม่ใช่เครื่องมือเพิ่มกำไร</div>
+    </article>
+
+    <article class="card" data-speaker="4">
+      <div class="cardhead"><div class="page">15</div><div class="meta"><small>คนที่ 4</small><h2>Integrated Risk Matrix</h2></div></div>
+      <div class="speech">
+        <p>เมื่อรวมความเสี่ยงทั้งหมด เราพบว่า FX ไม่ใช่ความเสี่ยงที่ใหญ่ที่สุดของโปรเจกต์นี้</p>
+        <p>ความเสี่ยงหลักจริง ๆ คือเรื่อง Demand การพึ่งพาคนสำคัญ Visa แรงงาน Supply Chain และชื่อเสียงของแบรนด์</p>
+        <p>ตัวอย่างเช่น ถ้าจำนวนลูกค้าต่ำกว่าที่คาด ผลกระทบต่อ EBITDA จะมากกว่าความผันผวนของค่าเงิน ดังนั้นสิ่งที่ต้องพิสูจน์ก่อนลงทุนใหญ่คือ Demand จริงของตลาด</p>
+      </div>
+      <div class="cue"><b>เน้น:</b> Operational risk สำคัญกว่า FX risk</div>
+    </article>
+
+    <article class="card" data-speaker="4">
+      <div class="cardhead"><div class="page">16</div><div class="meta"><small>คนที่ 4</small><h2>Conditional Go</h2></div></div>
+      <div class="speech">
+        <p>ดังนั้นข้อเสนอของเราไม่ใช่การเปิดร้านเต็มรูปแบบทันที แต่ให้เริ่มด้วย Pilot ประมาณ 8–12 สัปดาห์ เพื่อทดสอบ Demand จริงก่อน</p>
+        <p>ถ้า Pilot ทำได้ตามเป้าหมาย ทั้งจำนวนลูกค้า ค่าใช้จ่ายเฉลี่ยต่อคน และความพร้อมของ Visa กับ Supply Chain จึงค่อยขยายต่อ</p>
+        <p>รูปแบบที่เราเสนอคือ Management Agreement กับ Local Partner โดยให้พาร์ตเนอร์รับภาระเงินลงทุนหลัก ส่วน Samrub ดูแลแบรนด์ เมนู เชฟ การฝึกทีม และมาตรฐานคุณภาพ</p>
+      </div>
+      <div class="cue"><b>เน้น:</b> Pilot first → Partner-funded model → Samrub ลงเงินน้อยลง แต่ยังคุมคุณภาพ</div>
+    </article>
+
+    <article class="card" data-speaker="4">
+      <div class="cardhead"><div class="page">17</div><div class="meta"><small>คนที่ 4</small><h2>Q&A Support</h2></div></div>
+      <div class="speech">
+        <p>สรุปคือ London มีศักยภาพสำหรับ Samrub แต่เราเสนอให้ขยายแบบมีเงื่อนไข ไม่ใช่ลงทุนเต็มรูปแบบทันที</p>
+        <p>แนวคิดหลักคือเริ่มจากการทดสอบตลาด ใช้ Local Partner ช่วยลดเงินลงทุน รักษา Brand DNA และใช้ Hedging เฉพาะจุดที่มีความเสี่ยงค่าเงินจริง</p>
+        <p>ส่วนรายละเอียดเรื่องการเลือกเมือง โมเดลการเงิน Bid–Offer, Cross Rate, Forward, Risk Matrix และ Hedging จะอยู่ใน Appendix สำหรับใช้ตอบคำถามเพิ่มเติม</p>
+      </div>
+      <div class="cue"><b>ปิด:</b> “ขอบคุณครับ/ค่ะ หากมีคำถาม พวกเรายินดีตอบครับ/ค่ะ”</div>
+    </article>
+
+  </div>
+
+  <div class="footer">
+    Samrub Samrub Thai × London • Expanded Speaker Script • Slides 1–17
+  </div>
+</div>
+
+<script>
+function filterSpeaker(n){
+  document.querySelectorAll('.person').forEach(p=>p.classList.toggle('active', Number(p.dataset.speaker)===n));
+  let shown=0;
+  document.querySelectorAll('.card').forEach(c=>{
+    const match=Number(c.dataset.speaker)===n;
+    c.classList.toggle('hidden', !match);
+    if(match) shown++;
+  });
+  document.getElementById('status').textContent=`กำลังแสดง คนที่ ${n} • ${shown} สไลด์`;
+  window.scrollTo({top:document.querySelector('.toolbar').offsetTop-20,behavior:'smooth'});
+}
+function showAll(){
+  document.querySelectorAll('.person').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('hidden'));
+  document.getElementById('status').textContent='แสดงทั้งหมด 17 สไลด์';
+}
+</script>
+</body>
+</html>
